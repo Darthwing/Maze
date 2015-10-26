@@ -244,6 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tint.removeFromParent()
         pauseMenu.removeFromParent()
         instruct.removeFromParent()
+        bgMusic.play()
     }
     
     func pauseing()
@@ -272,6 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         instruct.fontSize = 51
         self.addChild(instruct)
         self.removeAllActions()
+        bgMusic.pause()
     }
     
     func setUpAudio()
@@ -280,7 +282,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             let bgMusicURL = NSBundle.mainBundle().URLForResource("sea2", withExtension: ".caf")
             try! bgMusic = AVAudioPlayer(contentsOfURL: bgMusicURL!, fileTypeHint:nil)
-            bgMusic.numberOfLoops = 1
+            bgMusic.numberOfLoops = -1
             bgMusic.prepareToPlay()
             bgMusic.play()
         }
