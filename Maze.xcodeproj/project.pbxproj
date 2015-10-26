@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5122D52A1BD99ED100C4E3B4 /* Helena2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5122D5291BD99ED100C4E3B4 /* Helena2.caf */; settings = {ASSET_TAGS = (); }; };
+		5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5122D52B1BD9A91F00C4E3B4 /* sea2.caf */; settings = {ASSET_TAGS = (); }; };
 		51C3F0331BB9FA7300679875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0321BB9FA7300679875 /* AppDelegate.swift */; };
 		51C3F0351BB9FA7300679875 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0341BB9FA7300679875 /* GameScene.swift */; };
 		51C3F0371BB9FA7300679875 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51C3F0361BB9FA7300679875 /* GameScene.sks */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5122D5291BD99ED100C4E3B4 /* Helena2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Helena2.caf; sourceTree = "<group>"; };
+		5122D52B1BD9A91F00C4E3B4 /* sea2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea2.caf; sourceTree = "<group>"; };
 		51C3F02F1BB9FA7300679875 /* Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3F0321BB9FA7300679875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3F0341BB9FA7300679875 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 		51C3F0311BB9FA7300679875 /* Maze */ = {
 			isa = PBXGroup;
 			children = (
+				5122D52B1BD9A91F00C4E3B4 /* sea2.caf */,
+				5122D5291BD99ED100C4E3B4 /* Helena2.caf */,
 				51C3F0321BB9FA7300679875 /* AppDelegate.swift */,
 				51C3F0341BB9FA7300679875 /* GameScene.swift */,
 				51C3F0361BB9FA7300679875 /* GameScene.sks */,
@@ -123,6 +129,8 @@
 			files = (
 				51C3F0391BB9FA7300679875 /* Assets.xcassets in Resources */,
 				51C3F0371BB9FA7300679875 /* GameScene.sks in Resources */,
+				5122D52A1BD99ED100C4E3B4 /* Helena2.caf in Resources */,
+				5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */,
 				51C3F03C1BB9FA7300679875 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +284,7 @@
 				51C3F0421BB9FA7300679875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
