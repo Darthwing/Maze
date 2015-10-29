@@ -13,11 +13,7 @@ var player = SKSpriteNode()
 var maze = SKSpriteNode()
 let wall = SKSpriteNode()
 
-var error: NSError?
-
-//init (calibrated)
-
-//var playMusic = SKAction.playSoundFileNamed("Helena2.caf", waitForCompletion: false)
+var playMusic = SKAction.playSoundFileNamed("bicycle_bell.wav", waitForCompletion: false)
 
 var zombie = SKSpriteNode(imageNamed: "zombie2")
 
@@ -55,7 +51,7 @@ var movingSprite = SKAction.repeatActionForever(spriteAni)
 class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-
+        
         setUpAudio()
         
         tint = SKSpriteNode(color: NSColor.blackColor(), size: CGSizeMake(self.frame.width, self.frame.height))
@@ -209,6 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 1)
         {
             print("hey, there is contact between player and wall")
+            self.runAction(playMusic)
         }
         
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 5)
@@ -216,6 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             print("hey, there is contact between player and finish")
             player.physicsBody?.dynamic = false
             timer.invalidate()
+            bgMusic.pause()
             Score()
             //            zombie.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
             //            zombie.size = CGSizeMake(self.frame.width, self.frame.height)
@@ -286,6 +284,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bgMusic.prepareToPlay()
             bgMusic.play()
         }
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
