@@ -9,16 +9,19 @@
 /* Begin PBXBuildFile section */
 		511C56DC1BDEF14D002AAD34 /* bicycle_bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 511C56DB1BDEF14D002AAD34 /* bicycle_bell.wav */; };
 		5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5122D52B1BD9A91F00C4E3B4 /* sea2.caf */; };
+		5198FB171BE2709E00CAA1D9 /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198FB161BE2709E00CAA1D9 /* GameScene2.swift */; };
 		51C3F0331BB9FA7300679875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0321BB9FA7300679875 /* AppDelegate.swift */; };
 		51C3F0351BB9FA7300679875 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0341BB9FA7300679875 /* GameScene.swift */; };
 		51C3F0371BB9FA7300679875 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51C3F0361BB9FA7300679875 /* GameScene.sks */; };
 		51C3F0391BB9FA7300679875 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51C3F0381BB9FA7300679875 /* Assets.xcassets */; };
 		51C3F03C1BB9FA7300679875 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51C3F03A1BB9FA7300679875 /* MainMenu.xib */; };
+		51CBDAB31BE82E1A00C88CCC /* GameScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 51CBDAB21BE82E1A00C88CCC /* GameScene2.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		511C56DB1BDEF14D002AAD34 /* bicycle_bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bicycle_bell.wav; sourceTree = "<group>"; };
 		5122D52B1BD9A91F00C4E3B4 /* sea2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea2.caf; sourceTree = "<group>"; };
+		5198FB161BE2709E00CAA1D9 /* GameScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
 		51C3F02F1BB9FA7300679875 /* Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3F0321BB9FA7300679875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51C3F0341BB9FA7300679875 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		51C3F0381BB9FA7300679875 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51C3F03B1BB9FA7300679875 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		51C3F03D1BB9FA7300679875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51CBDAB21BE82E1A00C88CCC /* GameScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene2.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				51C3F0321BB9FA7300679875 /* AppDelegate.swift */,
 				51C3F0341BB9FA7300679875 /* GameScene.swift */,
 				51C3F0361BB9FA7300679875 /* GameScene.sks */,
+				5198FB161BE2709E00CAA1D9 /* GameScene2.swift */,
+				51CBDAB21BE82E1A00C88CCC /* GameScene2.sks */,
 				51C3F0381BB9FA7300679875 /* Assets.xcassets */,
 				51C3F03A1BB9FA7300679875 /* MainMenu.xib */,
 				51C3F03D1BB9FA7300679875 /* Info.plist */,
@@ -132,6 +138,7 @@
 				5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */,
 				51C3F03C1BB9FA7300679875 /* MainMenu.xib in Resources */,
 				511C56DC1BDEF14D002AAD34 /* bicycle_bell.wav in Resources */,
+				51CBDAB31BE82E1A00C88CCC /* GameScene2.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5198FB171BE2709E00CAA1D9 /* GameScene2.swift in Sources */,
 				51C3F0351BB9FA7300679875 /* GameScene.swift in Sources */,
 				51C3F0331BB9FA7300679875 /* AppDelegate.swift in Sources */,
 			);

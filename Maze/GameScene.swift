@@ -13,6 +13,11 @@ var player = SKSpriteNode()
 var maze = SKSpriteNode()
 let wall = SKSpriteNode()
 
+
+
+var transition = SKTransition.fadeWithDuration(2)
+
+
 var playMusic = SKAction.playSoundFileNamed("bicycle_bell.wav", waitForCompletion: false)
 
 var zombie = SKSpriteNode(imageNamed: "zombie2")
@@ -51,8 +56,9 @@ var movingSprite = SKAction.repeatActionForever(spriteAni)
 class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
         setUpAudio()
+        
+        
         
         tint = SKSpriteNode(color: NSColor.blackColor(), size: CGSizeMake(self.frame.width, self.frame.height))
         tint.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
@@ -149,7 +155,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if theEvent.keyCode == 36
         {
-            playPosition = CGPointMake(player.position.x, player.position.y)
+            if isPaused == true
+            {
+                play()
+            }
+            else
+            {
+                if done == false
+                {
+                    pauseing()
+                }
+            }
+            
         }
         
     }
@@ -184,19 +201,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 player.physicsBody?.velocity = CGVectorMake(0, 0)
             }
         }
-        if theEvent.keyCode == 36
+        if theEvent.keyCode == 49
         {
-            if isPaused == true
+            
+            if let scene2 = GameScene2(fileNamed: "GameScene2")
             {
-                play()
+                scene2.scaleMode = SKSceneScaleMode.AspectFit
+                print("\(scene2)")
+                
+                self.view?.presentScene(scene2, transition: transition)
             }
-            else
-            {
-                if done == false
-                {
-                    pauseing()
-                }
-            }
+            
+            
+            
         }
         
     }
@@ -204,13 +221,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 1)
         {
-            print("hey, there is contact between player and wall")
             self.runAction(playMusic)
         }
         
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 5)
         {
-            print("hey, there is contact between player and finish")
             player.physicsBody?.dynamic = false
             timer.invalidate()
             bgMusic.pause()
