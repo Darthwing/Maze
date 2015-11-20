@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510130731BF5628B001E30E4 /* Spark.sks in Resources */ = {isa = PBXBuildFile; fileRef = 510130711BF5628B001E30E4 /* Spark.sks */; };
+		510130741BF5628B001E30E4 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 510130721BF5628B001E30E4 /* spark.png */; };
 		511C56DC1BDEF14D002AAD34 /* bicycle_bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 511C56DB1BDEF14D002AAD34 /* bicycle_bell.wav */; };
 		5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 5122D52B1BD9A91F00C4E3B4 /* sea2.caf */; };
+		514C4A7F1BEA3EAD00871E57 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 514C4A7E1BEA3EAD00871E57 /* MainMenu.sks */; };
+		514C4A811BEA3EEF00871E57 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C4A801BEA3EEF00871E57 /* MainMenu.swift */; };
+		514C4AA01BEA86D500871E57 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C4A9F1BEA86D400871E57 /* Levels.swift */; };
+		514C4AA61BEA872300871E57 /* Levels.sks in Resources */ = {isa = PBXBuildFile; fileRef = 514C4AA51BEA872300871E57 /* Levels.sks */; };
+		515CCF3E1BF167F900FA5EB4 /* backMusic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 515CCF3D1BF167F900FA5EB4 /* backMusic.caf */; };
+		5169D4F31BEC18C400F4F9D8 /* Oswald-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5169D4F21BEC18C400F4F9D8 /* Oswald-Regular.ttf */; };
 		5198FB171BE2709E00CAA1D9 /* GameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5198FB161BE2709E00CAA1D9 /* GameScene2.swift */; };
 		51C3F0331BB9FA7300679875 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0321BB9FA7300679875 /* AppDelegate.swift */; };
 		51C3F0351BB9FA7300679875 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C3F0341BB9FA7300679875 /* GameScene.swift */; };
@@ -19,8 +27,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		510130711BF5628B001E30E4 /* Spark.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Spark.sks; sourceTree = "<group>"; };
+		510130721BF5628B001E30E4 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		511C56DB1BDEF14D002AAD34 /* bicycle_bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bicycle_bell.wav; sourceTree = "<group>"; };
 		5122D52B1BD9A91F00C4E3B4 /* sea2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea2.caf; sourceTree = "<group>"; };
+		514C4A7E1BEA3EAD00871E57 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
+		514C4A801BEA3EEF00871E57 /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		514C4A9F1BEA86D400871E57 /* Levels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
+		514C4AA51BEA872300871E57 /* Levels.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Levels.sks; sourceTree = "<group>"; };
+		515CCF3D1BF167F900FA5EB4 /* backMusic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = backMusic.caf; sourceTree = "<group>"; };
+		5169D4F21BEC18C400F4F9D8 /* Oswald-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oswald-Regular.ttf"; sourceTree = "<group>"; };
 		5198FB161BE2709E00CAA1D9 /* GameScene2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene2.swift; sourceTree = "<group>"; };
 		51C3F02F1BB9FA7300679875 /* Maze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C3F0321BB9FA7300679875 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,13 +78,21 @@
 		51C3F0311BB9FA7300679875 /* Maze */ = {
 			isa = PBXGroup;
 			children = (
+				5169D4F21BEC18C400F4F9D8 /* Oswald-Regular.ttf */,
+				515CCF3D1BF167F900FA5EB4 /* backMusic.caf */,
 				5122D52B1BD9A91F00C4E3B4 /* sea2.caf */,
 				511C56DB1BDEF14D002AAD34 /* bicycle_bell.wav */,
 				51C3F0321BB9FA7300679875 /* AppDelegate.swift */,
-				51C3F0341BB9FA7300679875 /* GameScene.swift */,
+				514C4A7E1BEA3EAD00871E57 /* MainMenu.sks */,
+				514C4A801BEA3EEF00871E57 /* MainMenu.swift */,
+				514C4AA51BEA872300871E57 /* Levels.sks */,
+				514C4A9F1BEA86D400871E57 /* Levels.swift */,
 				51C3F0361BB9FA7300679875 /* GameScene.sks */,
-				5198FB161BE2709E00CAA1D9 /* GameScene2.swift */,
+				51C3F0341BB9FA7300679875 /* GameScene.swift */,
+				510130711BF5628B001E30E4 /* Spark.sks */,
+				510130721BF5628B001E30E4 /* spark.png */,
 				51CBDAB21BE82E1A00C88CCC /* GameScene2.sks */,
+				5198FB161BE2709E00CAA1D9 /* GameScene2.swift */,
 				51C3F0381BB9FA7300679875 /* Assets.xcassets */,
 				51C3F03A1BB9FA7300679875 /* MainMenu.xib */,
 				51C3F03D1BB9FA7300679875 /* Info.plist */,
@@ -134,10 +158,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				51C3F0391BB9FA7300679875 /* Assets.xcassets in Resources */,
+				510130741BF5628B001E30E4 /* spark.png in Resources */,
+				5169D4F31BEC18C400F4F9D8 /* Oswald-Regular.ttf in Resources */,
 				51C3F0371BB9FA7300679875 /* GameScene.sks in Resources */,
 				5122D52C1BD9A91F00C4E3B4 /* sea2.caf in Resources */,
 				51C3F03C1BB9FA7300679875 /* MainMenu.xib in Resources */,
+				514C4AA61BEA872300871E57 /* Levels.sks in Resources */,
 				511C56DC1BDEF14D002AAD34 /* bicycle_bell.wav in Resources */,
+				515CCF3E1BF167F900FA5EB4 /* backMusic.caf in Resources */,
+				510130731BF5628B001E30E4 /* Spark.sks in Resources */,
+				514C4A7F1BEA3EAD00871E57 /* MainMenu.sks in Resources */,
 				51CBDAB31BE82E1A00C88CCC /* GameScene2.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,9 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514C4AA01BEA86D500871E57 /* Levels.swift in Sources */,
 				5198FB171BE2709E00CAA1D9 /* GameScene2.swift in Sources */,
 				51C3F0351BB9FA7300679875 /* GameScene.swift in Sources */,
 				51C3F0331BB9FA7300679875 /* AppDelegate.swift in Sources */,
+				514C4A811BEA3EEF00871E57 /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

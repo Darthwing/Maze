@@ -8,12 +8,11 @@
 
 import SpriteKit
 import AVFoundation
-private var bgMusic: AVAudioPlayer!
 var player = SKSpriteNode()
 var maze = SKSpriteNode()
 let wall = SKSpriteNode()
 
-
+var wallHitCount = 0
 
 var transition = SKTransition.fadeWithDuration(2)
 
@@ -37,12 +36,13 @@ var uncalculatedScore = Int(min.text!+second.text!+tenth.text!)
 var mazeTexture = SKTexture(imageNamed: "Moderate Maze")
 
 var timer = NSTimer()
+var timer2 = NSTimer()
+
 
 
 var tenthTime = 0
 var secondTime = 0
 var minTime = 0
-
 
 var tenth = SKLabelNode()
 var second = SKLabelNode()
@@ -56,8 +56,11 @@ var movingSprite = SKAction.repeatActionForever(spriteAni)
 class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        setUpAudio()
         
+        //       let FX:AnyObject = NSKeyedUnarchiver.unarchiveObjectWithData(NSBundle().pathForResource("Spark", ofType: "sks"))
+        //        let emitter:SKEmitterNode = FX as! SKEmitterNode
+        
+        bgMusic.play()
         
         
         tint = SKSpriteNode(color: NSColor.blackColor(), size: CGSizeMake(self.frame.width, self.frame.height))
@@ -65,6 +68,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.backgroundColor = NSColor(white: 1, alpha: 0)
+        //        print(self)
+        //        print("asdf")
+        
         
         //        MARK: wall
         wall.size = CGSizeMake(1, 1000)
@@ -155,6 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         if theEvent.keyCode == 36
         {
+            
             if isPaused == true
             {
                 play()
@@ -204,16 +211,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if theEvent.keyCode == 49
         {
             
-            if let scene2 = GameScene2(fileNamed: "GameScene2")
-            {
-                scene2.scaleMode = SKSceneScaleMode.AspectFit
-                print("\(scene2)")
-                
-                self.view?.presentScene(scene2, transition: transition)
-            }
-            
-            
-            
         }
         
     }
@@ -221,7 +218,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 1)
         {
+            wallHitCount++
+            if wallHitCount == 5
+            {
+                diviser++
+                wallHitCount = 0
+                secondTime++
+                print("added 1 sec")
+            }
             self.runAction(playMusic)
+            
+            
+            
         }
         
         if (contact.bodyA.categoryBitMask == 3) && (contact.bodyB.categoryBitMask == 5)
@@ -230,12 +238,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.invalidate()
             bgMusic.pause()
             Score()
-            //            zombie.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
-            //            zombie.size = CGSizeMake(self.frame.width, self.frame.height)
-            //            zombie.zPosition = 15
-            //            self.addChild(zombie)
+            
+            let SPKFX = SKEmitterNode(fileNamed: "Spark")
+            SPKFX?.position = player.position
+            SPKFX?.particleBirthRate = 20
+            SPKFX?.numParticlesToEmit = 200
+            SPKFX?.particleLifetime = 3.0
+            SPKFX?.particleSpeed = 10
+            SPKFX?.xAcceleration = 100
+            SPKFX?.yAcceleration = 50
+            SPKFX?.zPosition = 20
+            SPKFX!.removeFromParent()
+            self.addChild(SPKFX!)
+            
+            
+            timer2 = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: "firework", userInfo: nil, repeats: false)
+            
         }
         
+        
+    }
+    
+    func firework()
+    {
+        if let scene2 = GameScene2(fileNamed: "GameScene2")
+        {
+            scene2.scaleMode = SKSceneScaleMode.AspectFit
+            print("\(scene2)")
+            player.removeFromParent()
+            self.view?.presentScene(scene2, transition: transition)
+        }
         
     }
     
@@ -246,7 +278,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print(600 / diviser)
         done = true
     }
-    
     func play()
     {
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "result", userInfo: nil, repeats: true)
@@ -259,7 +290,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         instruct.removeFromParent()
         bgMusic.play()
     }
-    
     func pauseing()
     {
         timer.invalidate()
@@ -287,19 +317,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(instruct)
         self.removeAllActions()
         bgMusic.pause()
-    }
-    
-    func setUpAudio()
-    {
-        if bgMusic == nil
-        {
-            let bgMusicURL = NSBundle.mainBundle().URLForResource("sea2", withExtension: ".caf")
-            try! bgMusic = AVAudioPlayer(contentsOfURL: bgMusicURL!, fileTypeHint:nil)
-            bgMusic.numberOfLoops = -1
-            bgMusic.prepareToPlay()
-            bgMusic.play()
-        }
-        
     }
     
     override func update(currentTime: CFTimeInterval) {

@@ -5,17 +5,17 @@
 //  Created by Peter Regard on 9/28/15.
 //  Copyright (c) 2015 Molecular Industries. All rights reserved.
 //
-
 import SpriteKit
 import AVFoundation
-private var bgMusic: AVAudioPlayer!
 class GameScene2: SKScene, SKPhysicsContactDelegate {
+
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        setUpAudio()
+//        bgMusic.play()
         
-        self.backgroundColor = NSColor.blackColor()
+        player.position = CGPointMake(120, 600)
+        self.addChild(player)
     }
     
     override func mouseDown(theEvent: NSEvent){
@@ -23,28 +23,83 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     }
     
     override func keyDown(theEvent: NSEvent) {
+        if theEvent.keyCode == 2
+        {
+            player.physicsBody?.velocity = CGVectorMake(250, 0)
+        }
+        if theEvent.keyCode == 0
+        {
+            player.physicsBody?.velocity = CGVectorMake(-250, 0)
+        }
+        
+        if theEvent.keyCode == 13
+        {
+            player.physicsBody?.velocity = CGVectorMake(0, 250)
+        }
+        if theEvent.keyCode == 1
+        {
+            player.physicsBody?.velocity = CGVectorMake(0, -250)
+        }
+        if theEvent.keyCode == 36
+        {
+            if isPaused == true
+            {
+               
+            }
+            else
+            {
+                if done == false
+                {
+                   
+                }
+            }
+            
+        }
         
     }
     
     override func keyUp(theEvent: NSEvent) {
         
+        if theEvent.keyCode == 2
+        {
+            if player.physicsBody?.velocity.dx > 0
+            {
+                player.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+        }
+        if theEvent.keyCode == 0 {
+            if player.physicsBody?.velocity.dx < 0
+            {
+                player.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+        }
+        
+        if theEvent.keyCode == 13
+        {
+            if player.physicsBody?.velocity.dy > 0
+            {
+                player.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+        }
+        if theEvent.keyCode == 1
+        {
+            if player.physicsBody?.velocity.dy < 0
+            {
+                player.physicsBody?.velocity = CGVectorMake(0, 0)
+            }
+        }
+        if theEvent.keyCode == 49
+        {
+            
+            
+            
+            
+        }
         
     }
     func didBeginContact(contact: SKPhysicsContact) {
         
         
-        
-    }
-    func setUpAudio()
-    {
-        if bgMusic == nil
-        {
-            let bgMusicURL = NSBundle.mainBundle().URLForResource("sea2", withExtension: ".caf")
-            try! bgMusic = AVAudioPlayer(contentsOfURL: bgMusicURL!, fileTypeHint:nil)
-            bgMusic.numberOfLoops = -1
-            bgMusic.prepareToPlay()
-            bgMusic.play()
-        }
         
     }
     
