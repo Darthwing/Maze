@@ -11,11 +11,15 @@ import SpriteKit
 import AVFoundation
 
 
- var bgMusic: AVAudioPlayer!
+var bgMusic: AVAudioPlayer!
 
 var playButton = SKSpriteNode()
 var levelButton = SKSpriteNode()
+var musicButton = SKSpriteNode()
 var title = SKLabelNode(fontNamed: "Oswald-Regular.ttf")
+var musicButtonDefault = SKTexture(imageNamed: "No Music.png")
+var musicButtonOn = SKTexture(imageNamed: "No Music active1")
+
 
 
 class MainMenu: SKScene, SKPhysicsContactDelegate {
@@ -29,13 +33,17 @@ class MainMenu: SKScene, SKPhysicsContactDelegate {
         playButton.name = "play"
         playButton.userInteractionEnabled = false
         
+        musicButton = childNodeWithName("musicButton") as! SKSpriteNode
+        musicButton.name = "noMusic"
+        musicButton.userInteractionEnabled = false
+        
         levelButton = childNodeWithName("levelButton") as! SKSpriteNode
         levelButton.name = "play"
         levelButton.userInteractionEnabled = false
         
         title = (childNodeWithName("title1") as? SKLabelNode)!
         title.fontName = "Oswald-Regular.ttf"
-        }
+    }
     
     override func mouseDown(theEvent: NSEvent){
         /* Called when a mouse click occurs */
@@ -43,11 +51,16 @@ class MainMenu: SKScene, SKPhysicsContactDelegate {
         let click = self.nodeAtPoint(location)
         if click.name == "play"
         {
-         if let level1 = GameScene(fileNamed: "GameScene")
-         {
-            level1.scaleMode = SKSceneScaleMode.AspectFit
-            self.view?.presentScene(level1, transition: transition)
+            if let level1 = GameScene(fileNamed: "GameScene")
+            {
+                level1.scaleMode = SKSceneScaleMode.AspectFit
+                self.view?.presentScene(level1, transition: transition)
             }
+        }
+        if click.name == "noMusic"
+        {
+            bgMusic.stop()
+            musicButton.texture = musicButtonOn
         }
         
         
