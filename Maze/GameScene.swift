@@ -12,6 +12,7 @@ var player = SKSpriteNode()
 var maze = SKSpriteNode()
 let wall = SKSpriteNode()
 
+
 var wallHitCount = 0
 
 var transition = SKTransition.fadeWithDuration(2)
@@ -50,6 +51,8 @@ var min = SKLabelNode()
 var pauseMenu = SKLabelNode()
 var instruct = SKLabelNode()
 
+var musicYes = false
+
 var spriteAni = SKAction.rotateByAngle(2, duration: 0.25)
 var movingSprite = SKAction.repeatActionForever(spriteAni)
 
@@ -57,10 +60,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        //       let FX:AnyObject = NSKeyedUnarchiver.unarchiveObjectWithData(NSBundle().pathForResource("Spark", ofType: "sks"))
-        //        let emitter:SKEmitterNode = FX as! SKEmitterNode
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("Coding Explorer", forKey: "MusicY")
+
         
-        bgMusic.play()
+        if bgMusic != nil
+        {
+            bgMusic.play()
+        }
+
+        
         
         
         tint = SKSpriteNode(color: NSColor.blackColor(), size: CGSizeMake(self.frame.width, self.frame.height))
@@ -68,8 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.backgroundColor = NSColor(white: 1, alpha: 0)
-        //        print(self)
-        //        print("asdf")
+    
         
         
         //        MARK: wall
@@ -236,7 +244,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             player.physicsBody?.dynamic = false
             timer.invalidate()
-            bgMusic.pause()
             Score()
             
             let SPKFX = SKEmitterNode(fileNamed: "Spark")

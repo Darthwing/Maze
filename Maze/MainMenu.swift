@@ -18,15 +18,27 @@ var levelButton = SKSpriteNode()
 var musicButton = SKSpriteNode()
 var title = SKLabelNode(fontNamed: "Oswald-Regular.ttf")
 var musicButtonDefault = SKTexture(imageNamed: "No Music.png")
-var musicButtonOn = SKTexture(imageNamed: "No Music active1")
-
+var musicButtonOff = SKTexture(imageNamed: "No Music active1")
+var title2 = SKLabelNode(fontNamed: "Oswald-Regular.ttf")
+var MusicOn = true
+var MusicOff = false
+let defaults = NSUserDefaults.standardUserDefaults()
 
 
 class MainMenu: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView)
     {/* Setup your scene here */
-        
-        setUpAudio()
+        if defaults.integerForKey("FirstTime") == 0
+        {
+            defaults.setInteger(1, forKey: "FirstTime")
+            
+            defaults.setBool(true, forKey: "musicY")
+        }
+        if defaults.boolForKey("musicY") == true
+        {
+            setUpAudio()
+            musicButton.texture = musicButtonDefault
+        }
         self.backgroundColor = NSColor.whiteColor()
         
         playButton = childNodeWithName("playButton") as! SKSpriteNode
@@ -43,6 +55,10 @@ class MainMenu: SKScene, SKPhysicsContactDelegate {
         
         title = (childNodeWithName("title1") as? SKLabelNode)!
         title.fontName = "Oswald-Regular.ttf"
+        title2 = (childNodeWithName("title") as? SKLabelNode)!
+        title2.fontName = "Oswald-Regular.ttf"
+        
+        
     }
     
     override func mouseDown(theEvent: NSEvent){
@@ -57,10 +73,11 @@ class MainMenu: SKScene, SKPhysicsContactDelegate {
                 self.view?.presentScene(level1, transition: transition)
             }
         }
-        if click.name == "noMusic"
+        if click.name == "noMusic" && musicButton.texture == musicButtonDefault
         {
+            defaults.setBool(false, forKey: "musicY")
             bgMusic.stop()
-            musicButton.texture = musicButtonOn
+            musicButton.texture = musicButtonOff
         }
         
         

@@ -12,9 +12,9 @@ class GameScene2: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-//        bgMusic.play()
         
         player.position = CGPointMake(120, 600)
+        player.physicsBody?.dynamic = true
         self.addChild(player)
     }
     
